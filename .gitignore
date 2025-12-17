@@ -1,0 +1,10 @@
+# Dépendances Node
+backend/node_modules
+
+# Fichiers de compilation TypeScript (pour le backend)
+backend/dist
+backend/.env
+
+# Dépendances Node
+frontend/node_modules
+
