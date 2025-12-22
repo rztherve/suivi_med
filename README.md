@@ -28,4 +28,3 @@ backend/README.md
 frontend/README.md
 
 
-Merci de valider la demande de merge dans la branche main depuis la branche develop s'il vous plaît

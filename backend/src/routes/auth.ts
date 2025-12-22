@@ -64,7 +64,7 @@ router.post("/register", async (req, res) => {
   } catch (err: any) {
     console.error(err);
     if (err.name === "ZodError") {
-      return res.status(400).json({ error: err.errors.map(e => e.message).join(", ") });
+      return res.status(400).json({ error: err.errors.map((e:any) => e.message).join(", ") });
     }
     res.status(500).json({ error: "Server error during registration" });
   }
@@ -96,7 +96,7 @@ router.post("/login", async (req, res) => {
   } catch (err: any) {
     console.error(err);
     if (err.name === "ZodError") {
-      return res.status(400).json({ error: err.errors.map(e => e.message).join(", ") });
+      return res.status(400).json({ error: err.errors.map((e:any) => e.message).join(", ") });
     }
     res.status(500).json({ error: "Server error during login" });
   }
