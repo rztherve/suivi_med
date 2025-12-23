@@ -60,7 +60,7 @@ export default function RegisterPage() {
             S’inscrire
           </button>
           <p className="hint" style={{ marginTop: 10 }}>
-            Déjà un compte ? <a href="/">Se connecter</a>
+            Déjà un compte ? <a href="/login">Se connecter</a>
           </p>
         </form>
         {error && <p className="error">{error}</p>}
