@@ -21,7 +21,7 @@ const allowedOrigins = [
 ].filter(Boolean) as string[];
 
 const corsOptions: CorsOptions = {
-  origin: (origin, callback) => {
+  origin: (origin: string | undefined, callback: (err: Error | null, allow?: boolean) => void) => {
     // Autoriser si pas d’origine (Postman, serveur local)
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
@@ -51,7 +51,7 @@ app.use('/api/notifications', notificationsRoutes);
  */
 app.get('/', (req, res) => {
   res.json({
-    message: 'API Suivi de Médicaments — Novity Test',
+    message: 'API Suivi de Médicaments',
     status: 'running',
   });
 });
