@@ -13,7 +13,7 @@ declare module 'express' {
 export async function authMiddleware(req: Request, res: Response, next: NextFunction) {
   try {
     const token = req.cookies.auth_token; // Récupère le token depuis le cookie
-    if (!token) return res.status(401).json({ error: "Invalid token format -- " + req.cookies });
+    if (!token) return res.status(401).json({ error: "Invalid token format " });
 
     const payload = jwt.verify(token, JWT_SECRET) as { id: string };
     const user = await User.findById(payload.id).select("-password").exec();
