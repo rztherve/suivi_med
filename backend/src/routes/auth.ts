@@ -30,7 +30,7 @@ function setAuthCookie(res: any, userId: string, email: string) {
     res.cookie('auth_token', token, { // Nom du cookie: 'auth_token'
         httpOnly: true, // Empêche l'accès par JS du côté client (protection XSS)
         secure: process.env.NODE_ENV === 'production', // N'envoyer que sur HTTPS en production
-        sameSite: 'lax', // Bonne pratique pour la prévention CSRF
+        sameSite: 'none', // Bonne pratique pour la prévention CSRF : lax
         maxAge: 24 * 60 * 60 * 1000 // Durée de vie du cookie (1 jour)
     });
     return token; // Renvoie le token au cas où on voudrait le logguer
