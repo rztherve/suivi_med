@@ -13,8 +13,7 @@ async function request<T>(path: string, method = 'GET', body?: any, withAuth = t
         method,
         headers,
         body: body ? JSON.stringify(body) : undefined,
-        // ✅ NOUVEAU : Ajouter les credentials pour les cookies
-        credentials: 'include' 
+        credentials: 'include', // ✅ NOUVEAU : Ajouter les credentials pour les cookies 
   };
   const res = await fetch(`${BASE}${path}`, options);
   const text = await res.text();

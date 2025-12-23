@@ -127,11 +127,11 @@ router.get("/me", authMiddleware, async (req, res) => { // <-- UTILISER authMidd
 // ROUTE : POST /auth/logout
 router.post('/logout', (req, res) => {
     // Le nom du cookie doit correspondre à celui défini dans /login et /register ('auth_token')
-    res.cookie('auth_token', '', { 
-        expires: new Date(0), // Fait expirer le cookie immédiatement
+    res.clearCookie('auth_token', { 
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
+        sameSite: 'none',
+        path: '/', // S'assurer que le cookie est supprimé pour tout le site
     });
     // On peut aussi utiliser res.clearCookie('auth_token');
     
