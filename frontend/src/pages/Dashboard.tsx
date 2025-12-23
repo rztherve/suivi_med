@@ -28,7 +28,8 @@ export default function Dashboard() {
       // si token invalide -> rediriger vers login
       console.error(err);
       if (err.message === 'No token' || err.message.toLowerCase().includes('token')) {
-        localStorage.removeItem('token');
+        // localStorage.removeItem('token');
+        document.cookie = 'auth_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         nav('/login');
       }
     } finally {
