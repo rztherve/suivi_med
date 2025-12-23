@@ -11,7 +11,7 @@ export default function NotificationsPanel({ notifications, onMarkDone }: { noti
         <div key={n.id} className="list-item" style={{ alignItems: 'flex-start' }}>
           <div>
             <div style={{ fontWeight: 600 }}>{n.message}</div>
-            <div className="small">{new Date(n.scheduledAt).toLocaleString()}</div>
+            <div className="small">{new Date(n.scheduledAt).toLocaleString('en-US', { timeZone: 'UTC' })}</div>
           </div>
           <div style={{ display: 'flex', gap: 8 }}>
             {!n.done && <button className="btn primary" onClick={() => onMarkDone(n.id)}>Marquer comme prise</button>}
